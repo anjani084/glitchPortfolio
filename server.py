@@ -1,6 +1,6 @@
 from flask import Flask, render_template, url_for, request
 import csv
-app = Flask(__name__,template_folder='templates', static_folder='static')
+app = Flask(__name__)
 
 @app.route('/')
 def my_home():
@@ -30,7 +30,5 @@ def submit_form():
     else:
         return 'something went wrong. Try again!'
 
-@app.after_request
-def set_content_type(response):
-    response.headers['Content-Type'] = 'text/html'
-    return response
+if __name__=="__main__":
+  app.run()
